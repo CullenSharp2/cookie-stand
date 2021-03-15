@@ -16,6 +16,10 @@ const amman = {
     sales: [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 47],
 }
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
 const bodyElem = document.getElementById('body');
 
 function createCookieStand(cookieStand) {
@@ -35,11 +39,13 @@ function createCookieStand(cookieStand) {
 
     newBoxElem.appendChild(newUlElem);
 
-    for (let i = 0; i < cookieStand.sales.length; i += 1) {
-        newLiElem = document.createElement('li');
-        newLiElem.textContent = `${hours[i]}: ${cookieStand.sales[i]} cookies`
-        newUlElem.appendChild(newLiElem);
-    }
+    // for (let k = 0; k < )
+
+        for (let i = 0; i < cookieStand.sales.length; i += 1) {
+            newLiElem = document.createElement('li');
+            newLiElem.textContent = `${hours[i]}: ${cookieStand.sales[i]} cookies`
+            newUlElem.appendChild(newLiElem);
+        }
 
     for (let j = 0; j < cookieStand.sales.length; j += 1) {
         total += cookieStand.sales[j];
