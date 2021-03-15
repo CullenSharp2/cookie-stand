@@ -4,21 +4,25 @@
 const seattle = {
     location: 'Seattle',
     sales: [],
-}
+};
 
 const tokyo = {
     location: 'Tokyo',
     sales: [],
-}
+    getSales: function getRandomSales(min, max) {
+        for (let k = 0; k < 14; k += 1) {
+            let randomInt = Math.random() * (max - min) + min;
+            this.sales.push(randomInt);
+        }
+    }
+};
 
 const amman = {
     location: 'Amman',
     sales: [],
-}
+};
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
+
 
 const bodyElem = document.getElementById('body');
 
@@ -39,12 +43,7 @@ function render(cookieStand) {
 
     newBoxElem.appendChild(newUlElem);
 
-    //populate sales array with random numbers
-    for (let k = 0; k < 14; k += 1) {
-        let randomInt = 0;
-        randomInt = getRandomInt(100);
-        cookieStand.sales.push(randomInt);
-    }
+    cookieStand.getRandomSales( 1, 100);
 
     for (let i = 0; i < cookieStand.sales.length; i += 1) {
         newLiElem = document.createElement('li');
@@ -60,6 +59,6 @@ function render(cookieStand) {
     totalElem.textContent = `Total: ${total} cookies`;
 }
 
-render(seattle);
+// render(seattle);
 render(tokyo);
-render(amman);
+// render(amman);
