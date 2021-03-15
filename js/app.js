@@ -23,10 +23,10 @@ function createCookieStand(cookieStand) {
     const newHeaderElem = document.createElement('h2');
     const newUlElem = document.createElement('ul');
     const newBoxElem = document.createElement('article');
-    const totalElem = document
+    const totalElem = document.createElement('li');
 
     let newLiElem;
-    let total;
+    let total = 0;
 
     bodyElem.appendChild(newBoxElem);
 
@@ -37,19 +37,18 @@ function createCookieStand(cookieStand) {
 
     for (let i = 0; i < cookieStand.sales.length; i += 1) {
         newLiElem = document.createElement('li');
-        newLiElem.textContent = `${hours[i]}: ${cookieStand.cookies[i]} cookies`
+        newLiElem.textContent = `${hours[i]}: ${cookieStand.sales[i]} cookies`
         newUlElem.appendChild(newLiElem);
     }
 
     for (let j = 0; j < cookieStand.sales.length; j += 1) {
-        total = total + cookieStand.sales;
+        total += cookieStand.sales[j];
     }
 
-    
-    totalElem.appendChild(document.createElement('li'));
-
+    newBoxElem.appendChild(totalElem);
+    totalElem.textContent = `Total: ${total}`;
 }
 
 createCookieStand(seattle);
-createCookieStand(tokyo);
-createCookieStand(amman);
+// createCookieStand(tokyo);
+// createCookieStand(amman);
