@@ -3,44 +3,51 @@
 //assign objects here
 const seattle = {
     location: 'Seattle',
-    time: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'],
-    cookies: ['16 cookies', '20 cookies', '35 cookies', '48 cookies', '56 cookies', '77 cookies', '93 cookies', '144 cookies', '119 cookies', '84 cookies', '61 cookies', '23 cookies', '42 cookies', '57 cookies', '875 cookies'],
+    sales: [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 47],
 }
 
 const tokyo = {
     location: 'Tokyo',
-    time: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'],
-    cookies: ['16 cookies', '20 cookies', '35 cookies', '48 cookies', '56 cookies', '77 cookies', '93 cookies', '144 cookies', '119 cookies', '84 cookies', '61 cookies', '23 cookies', '42 cookies', '57 cookies', '875 cookies'],
+    sales: [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 47],
 }
 
 const amman = {
     location: 'Amman',
-    time: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'],
-    cookies: ['16 cookies', '20 cookies', '35 cookies', '48 cookies', '56 cookies', '77 cookies', '93 cookies', '144 cookies', '119 cookies', '84 cookies', '61 cookies', '23 cookies', '42 cookies', '57 cookies', '875 cookies'],
+    sales: [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 47],
 }
 
 const bodyElem = document.getElementById('body');
 
 function createCookieStand(cookieStand) {
-    const newHeader = document.createElement('h2');
-    const newUl = document.createElement('ul');
-    const newBox = document.createElement('article');
-    let newLi;
+    const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+    const newHeaderElem = document.createElement('h2');
+    const newUlElem = document.createElement('ul');
+    const newBoxElem = document.createElement('article');
+    const totalElem = document
 
-    bodyElem.appendChild(newBox);
+    let newLiElem;
+    let total;
 
-    newBox.appendChild(newHeader);
-    newHeader.textContent = cookieStand.location;
+    bodyElem.appendChild(newBoxElem);
 
-    newBox.appendChild(newUl);
+    newBoxElem.appendChild(newHeaderElem);
+    newHeaderElem.textContent = cookieStand.location;
 
-    for (let i = 0; i < cookieStand.cookies.length; i += 1) {
-        newLi = document.createElement('li');
-        newLi.textContent = `${cookieStand.time[i]}: ${cookieStand.cookies[i]}`
-        newUl.appendChild(newLi);
+    newBoxElem.appendChild(newUlElem);
 
-        console.log(cookieStand.time[i], cookieStand.cookies[i], );
+    for (let i = 0; i < cookieStand.sales.length; i += 1) {
+        newLiElem = document.createElement('li');
+        newLiElem.textContent = `${hours[i]}: ${cookieStand.cookies[i]} cookies`
+        newUlElem.appendChild(newLiElem);
     }
+
+    for (let j = 0; j < cookieStand.sales.length; j += 1) {
+        total = total + cookieStand.sales;
+    }
+
+    
+    totalElem.appendChild(document.createElement('li'));
+
 }
 
 createCookieStand(seattle);
