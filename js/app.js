@@ -4,10 +4,17 @@
 const seattle = {
     location: 'Seattle',
     sales: [],
+    customers: [],
     getSales: function (min, max) {
         for (let k = 0; k < 14; k += 1) {
             let randomInt = Math.random() * (max - min) + min;
             this.sales.push(parseInt(randomInt));
+        }
+    },
+    getCustomers: function (min, max) {
+        for (let k = 0; k < 14; k += 1) {
+            let randomInt = Math.random() * (max - min) + min;
+            this.customers.push(parseInt(randomInt));
         }
     },
 };
@@ -15,21 +22,71 @@ const seattle = {
 const tokyo = {
     location: 'Tokyo',
     sales: [],
+    customers: [],
     getSales: function (min, max) {
         for (let k = 0; k < 14; k += 1) {
             let randomInt = Math.random() * (max - min) + min;
             this.sales.push(parseInt(randomInt));
         }
     },
+    getCustomers: function (min, max) {
+        for (let k = 0; k < 14; k += 1) {
+            let randomInt = Math.random() * (max - min) + min;
+            this.customers.push(parseInt(randomInt));
+        }
+    },
 };
 
-const amman = {
-    location: 'Amman',
+const dubai = {
+    location: 'Dubai',
     sales: [],
+    customers: [],
     getSales: function (min, max) {
         for (let k = 0; k < 14; k += 1) {
             let randomInt = Math.random() * (max - min) + min;
             this.sales.push(parseInt(randomInt));
+        }
+    },
+    getCustomers: function (min, max) {
+        for (let k = 0; k < 14; k += 1) {
+            let randomInt = Math.random() * (max - min) + min;
+            this.customers.push(parseInt(randomInt));
+        }
+    },
+};
+
+const lima = {
+    location: 'Lima',
+    sales: [],
+    customers: [],
+    getSales: function (min, max) {
+        for (let k = 0; k < 14; k += 1) {
+            let randomInt = Math.random() * (max - min) + min;
+            this.sales.push(parseInt(randomInt));
+        }
+    },
+    getCustomers: function (min, max) {
+        for (let k = 0; k < 14; k += 1) {
+            let randomInt = Math.random() * (max - min) + min;
+            this.customers.push(parseInt(randomInt));
+        }
+    },
+};
+
+const paris = {
+    location: 'Paris',
+    sales: [],
+    customers: [],
+    getSales: function (min, max) {
+        for (let k = 0; k < 14; k += 1) {
+            let randomInt = Math.random() * (max - min) + min;
+            this.sales.push(parseInt(randomInt));
+        }
+    },
+    getCustomers: function (min, max) {
+        for (let k = 0; k < 14; k += 1) {
+            let randomInt = Math.random() * (max - min) + min;
+            this.customers.push(parseInt(randomInt));
         }
     },
 };
@@ -71,4 +128,6 @@ function render(cookieStand) {
 
 render(seattle);
 render(tokyo);
-render(amman);
+render(dubai);
+render(paris);
+render(lima);
