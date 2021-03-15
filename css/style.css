@@ -8,7 +8,7 @@ html {
 }
 
 article{
-    display: flexbox;
+    float: left;
     width: 12rem;
     height: auto;
     margin: 1rem;
@@ -20,6 +20,7 @@ article{
 
 h2 {
     font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 1rem;
     border-bottom: solid grey .1rem;
     padding: 0rem 0rem .3rem 0rem;
@@ -30,5 +31,6 @@ ul {
 }
 
 li {
-    padding: 0rem 0rem .2rem 0rem;
+    list-style: none;
+    padding: 0rem 0rem .25rem 0rem;
 }
