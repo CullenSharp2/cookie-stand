@@ -50,5 +50,5 @@ function createCookieStand(cookieStand) {
 }
 
 createCookieStand(seattle);
-// createCookieStand(tokyo);
-// createCookieStand(amman);
+createCookieStand(tokyo);
+createCookieStand(amman);
