@@ -40,24 +40,24 @@ function createCookieStand(cookieStand) {
     newBoxElem.appendChild(newUlElem);
 
     //populate sales array with random numbers
-    for (let k = 0; k < 14; k += 1 ) {
+    for (let k = 0; k < 14; k += 1) {
         let randomInt = 0;
-        randomInt=getRandomInt(100);
+        randomInt = getRandomInt(100);
         cookieStand.sales[k] = randomInt;
     }
 
-        for (let i = 0; i < cookieStand.sales.length; i += 1) {
-            newLiElem = document.createElement('li');
-            newLiElem.textContent = `${hours[i]}: ${cookieStand.sales[i]} cookies`
-            newUlElem.appendChild(newLiElem);
-        }
+    for (let i = 0; i < cookieStand.sales.length; i += 1) {
+        newLiElem = document.createElement('li');
+        newLiElem.textContent = `${hours[i]}: ${cookieStand.sales[i]} cookies`
+        newUlElem.appendChild(newLiElem);
+    }
 
     for (let j = 0; j < cookieStand.sales.length; j += 1) {
         total += cookieStand.sales[j];
     }
 
     newBoxElem.appendChild(totalElem);
-    totalElem.textContent = `Total: ${total}`;
+    totalElem.textContent = `Total: ${total} cookies`;
 }
 
 createCookieStand(seattle);
