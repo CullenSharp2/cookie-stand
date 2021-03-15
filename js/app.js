@@ -8,5 +8,14 @@ const seattleCookieStand = {
 }
 
 const bodyElem = document.getElementById('body');
-const newHeader = document.createElement(h1);
-const newUl = document.createElement(ul);
+const newHeader = document.createElement('h1');
+const newUl = document.createElement('ul');
+const newli = document.createElement('li');
+
+bodyElem.appendChild(newHeader);
+newHeader.textContent = seattleCookieStand.name;
+
+
+// for(let i = 0; i < 15; i += 1) {
+    // 
+// } 
