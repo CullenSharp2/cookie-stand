@@ -4,7 +4,7 @@
 const seattle = {
     location: 'Seattle',
     sales: [],
-    getSales: function(min, max) {
+    getSales: function (min, max) {
         for (let k = 0; k < 14; k += 1) {
             let randomInt = Math.random() * (max - min) + min;
             this.sales.push(parseInt(randomInt));
@@ -15,7 +15,7 @@ const seattle = {
 const tokyo = {
     location: 'Tokyo',
     sales: [],
-    getSales: function(min, max) {
+    getSales: function (min, max) {
         for (let k = 0; k < 14; k += 1) {
             let randomInt = Math.random() * (max - min) + min;
             this.sales.push(parseInt(randomInt));
@@ -26,7 +26,7 @@ const tokyo = {
 const amman = {
     location: 'Amman',
     sales: [],
-    getSales: function(min, max) {
+    getSales: function (min, max) {
         for (let k = 0; k < 14; k += 1) {
             let randomInt = Math.random() * (max - min) + min;
             this.sales.push(parseInt(randomInt));
