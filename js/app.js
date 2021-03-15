@@ -3,17 +3,17 @@
 //assign objects here
 const seattle = {
     location: 'Seattle',
-    sales: [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 47],
+    sales: [],
 }
 
 const tokyo = {
     location: 'Tokyo',
-    sales: [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 47],
+    sales: [],
 }
 
 const amman = {
     location: 'Amman',
-    sales: [16, 20, 35, 48, 56, 77, 93, 144, 119, 84, 61, 23, 42, 47],
+    sales: [],
 }
 
 function getRandomInt(max) {
@@ -22,7 +22,7 @@ function getRandomInt(max) {
 
 const bodyElem = document.getElementById('body');
 
-function createCookieStand(cookieStand) {
+function render(cookieStand) {
     const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
     const newHeaderElem = document.createElement('h2');
     const newUlElem = document.createElement('ul');
@@ -43,7 +43,7 @@ function createCookieStand(cookieStand) {
     for (let k = 0; k < 14; k += 1) {
         let randomInt = 0;
         randomInt = getRandomInt(100);
-        cookieStand.sales[k] = randomInt;
+        cookieStand.sales.push(randomInt);
     }
 
     for (let i = 0; i < cookieStand.sales.length; i += 1) {
@@ -56,10 +56,10 @@ function createCookieStand(cookieStand) {
         total += cookieStand.sales[j];
     }
 
-    newBoxElem.appendChild(totalElem);
+    newUlElem.appendChild(totalElem);
     totalElem.textContent = `Total: ${total} cookies`;
 }
 
-createCookieStand(seattle);
-createCookieStand(tokyo);
-createCookieStand(amman);
+render(seattle);
+render(tokyo);
+render(amman);
