@@ -39,7 +39,12 @@ function createCookieStand(cookieStand) {
 
     newBoxElem.appendChild(newUlElem);
 
-    // for (let k = 0; k < )
+    //populate sales array with random numbers
+    for (let k = 0; k < 14; k += 1 ) {
+        let randomInt = 0;
+        randomInt=getRandomInt(100);
+        cookieStand.sales[k] = randomInt;
+    }
 
         for (let i = 0; i < cookieStand.sales.length; i += 1) {
             newLiElem = document.createElement('li');
