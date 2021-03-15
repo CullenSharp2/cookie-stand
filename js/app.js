@@ -8,14 +8,21 @@ const seattleCookieStand = {
 }
 
 const bodyElem = document.getElementById('body');
-const newHeader = document.createElement('h1');
+const newHeader = document.createElement('h2');
 const newUl = document.createElement('ul');
-const newli = document.createElement('li');
+const newBox = document.createElement('article');
 
-bodyElem.appendChild(newHeader);
+bodyElem.appendChild(newBox);
+
+newBox.appendChild(newHeader);
 newHeader.textContent = seattleCookieStand.name;
 
+newBox.appendChild(newUl);
 
-// for(let i = 0; i < 15; i += 1) {
-    // 
-// } 
+for(let i = 0; i < seattleCookieStand.cookies.length; i += 1) {
+    let newLi = document.createElement('li')
+    newLi.textContent = `${seattleCookieStand.time[i]}: ${seattleCookieStand.cookies[i]}`
+    newUl.appendChild(newLi);
+
+    console.log(seattleCookieStand.time[i], seattleCookieStand.cookies[i], );
+} 
