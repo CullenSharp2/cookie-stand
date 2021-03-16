@@ -77,8 +77,6 @@ CookieStandLocations.prototype.render = function (hours) {
         total += this.sales[j];
     }
 
-    console.log(total);
-
     // for loop to add sales data to table
     for (let i = 0; i < this.sales.length; i += 1) {
         tableDataElem = document.createElement('td');
