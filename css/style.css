@@ -4,25 +4,40 @@ html {
     background-color: rgb(221, 210, 221);
     color: goldenrod;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 24pt;
+    font-size: 100%;
 }
 
-article{
-    float: left;
-    width: 25%;
+header {
+    margin-bottom: 3rem;
+}
+
+h1 {
+    position: relative;
+    font-size: 5rem;
     height: auto;
-    margin: 1rem;
+    padding: 2rem 2rem 2rem 2rem;
+    background-color: ghostwhite;
+    color: springgreen;
+    border-bottom: solid grey .1rem;
+    border-right: solid grey .1rem;
+
+}
+
+article {
+    float: left;
+    width: 10%;
+    height: auto;
+    margin: 2rem;
     border: solid grey .1rem;
-    border-radius: 1rem;
-    padding: 1rem;
+    border-radius: 2rem;
+    padding: 2rem;
     background-color: ghostwhite;
 }
 
 h2 {
     font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color:springgreen;
+    margin-bottom: 2rem;
+    color: springgreen;
     border-bottom: solid grey .1rem;
     padding: 0rem 0rem .3rem 0rem;
 }
@@ -35,4 +50,5 @@ ul {
 li {
     list-style: none;
     padding: 0rem 0rem .25rem 0rem;
+    font-size: 1rem;
 }
