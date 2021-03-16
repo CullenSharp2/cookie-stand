@@ -56,19 +56,48 @@ CookieStandLocations.prototype.getSales = function () {
 }
 
 CookieStandLocations.prototype.render = function (hours) {
-    let tableHeaderElem;
+    const tableRowElem = document.createElement('tr');
+    let rowHeaderElem;
     let headerText;
-    let tableData;
+    let tableDataElem;
     let tableDataText;
     let total = 0;
 
+    //add row header
+    rowHeaderElem = document.createElement('th');
+    headerText = document.createTextNode(this.location);
+    rowHeaderElem.appendChild(headerText);
+    tableRowElem.appendChild(rowHeaderElem);
+
+    // generate customers/sales
     this.getCustomers(hours);
     this.getSales();
 
+    // for loop to add sales data to table
+    for (let i = 0; i < this.sales; i += 1) {
+        //create table data
+        tableDataElem = document.createElement('td');
+        tableDataText = document.createTextNode(this.sale[i]);
+        tableDataElem.appendChild(tableDataText);
+
+        //append to row
+        tableRowElem.appendChild(tableDataElem);
+    }
+
+    // calculate total
     for (let j = 0; j < hours.sales; j += 1) {
         total = total + this.sales;
     }
-    tableHeaderElem;
+
+    tableDataElem = document.createElement('td');
+    tableDataText = document.createTextNode('${total} cookies');
+    tableDataElem.appendChild(tableDataText);
+
+    //add total to row
+    tableRowElem.appendChild(tableDataElem);
+
+    //append row to table
+    tableElem.appendChild(tableRowElem);
 }
 
 const seattle = new CookieStandLocations('Seattle', 23, 65, 6.3);
@@ -78,7 +107,7 @@ const paris = new CookieStandLocations('Paris', 20, 38, 2.3);
 const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
 function renderTable(hours) {
-    let tableRowElem = document.createElement('tr');
+    const tableRowElem = document.createElement('tr');
     let tableHeaderElem;
     let headerText;
 
@@ -102,6 +131,7 @@ function renderTable(hours) {
 }
 
 renderTable(hours);
+seattle.render();
 bodyElem.appendChild(tableElem);
 
 // function render(cookieStand) {
