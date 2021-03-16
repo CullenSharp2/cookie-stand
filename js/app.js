@@ -54,6 +54,10 @@ CookieStandLocations.prototype.getSales = function () {
 }
 
 CookieStandLocations.prototype.render = function () {
+    //get reference to table element
+    //const TableElemRef = document.getElementById()
+
+    let tableDataElem;
 
 }
 
@@ -63,7 +67,9 @@ const dubai = new CookieStandLocations('Dubai', 11, 38, 3.7);
 const paris = new CookieStandLocations('Paris', 20, 38, 2.3);
 const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
+function renderTable(){
 
+}
 // function render(cookieStand) {
 //     const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 //     const newHeaderElem = document.createElement('h2');
@@ -98,8 +104,8 @@ const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 //     totalElem.textContent = `Total: ${total} cookies`;
 // }
 
-render(seattle);
-render(tokyo);
-render(dubai);
-render(paris);
-render(lima);
+// render(seattle);
+// render(tokyo);
+// render(dubai);
+// render(paris);
+// render(lima);
