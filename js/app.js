@@ -1,115 +1,139 @@
 'use strict'
 
-//assign objects here
-const seattle = {
-    location: 'Seattle',
-    minCustomers: 23,
-    maxCutsomers: 65,
-    avgSales: 6.3,
-    sales: [],
-    customers: [],
-    getSales: function () {
-        for (let k = 0; k < this.customers.length; k += 1) {
-            this.sales.push(parseInt(this.customers[k] * this.avgSales));
-        }
-    },
-    getCustomers: function () {
-        for (let k = 0; k < 14; k += 1) {
-            let max = this.maxCutsomers;
-            let min = this.minCustomers;
-            let randomInt = Math.random() * (max - min) + min;
-            this.customers.push(parseInt(randomInt));
-        }
-    },
-};
 
-const tokyo = {
-    location: 'Tokyo',
-    minCustomers: 3,
-    maxCutsomers: 24,
-    avgSales: 1.2,
-    sales: [],
-    customers: [],
-    getSales: function () {
+let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSales) {
+    this.location = location;
+    this.minCustomers = minCustomers;
+    this.maxCutsomers = maxCutsomers;
+    this.avgSales = avgSales;
+    this.customers = [];
+    this.sales = [];
+    this.getSales = function () {
         for (let k = 0; k < this.customers.length; k += 1) {
             this.sales.push(parseInt(this.customers[k] * this.avgSales));
         }
-    },
-    getCustomers: function () {
+    }
+    this.getCustomers = function () {
         for (let k = 0; k < 14; k += 1) {
             let max = this.maxCutsomers;
             let min = this.minCustomers;
             let randomInt = Math.random() * (max - min) + min;
             this.customers.push(parseInt(randomInt));
         }
-    },
-};
+    }
+}
 
-const dubai = {
-    location: 'Dubai',
-    minCustomers: 11,
-    maxCutsomers: 38,
-    avgSales: 3.7,
-    sales: [],
-    customers: [],
-    getSales: function () {
-        for (let k = 0; k < this.customers.length; k += 1) {
-            this.sales.push(parseInt(this.customers[k] * this.avgSales));
-        }
-    },
-    getCustomers: function () {
-        for (let k = 0; k < 14; k += 1) {
-            let max = this.maxCutsomers;
-            let min = this.minCustomers;
-            let randomInt = Math.random() * (max - min) + min;
-            this.customers.push(parseInt(randomInt));
-        }
-    },
-};
+let seattle = new CookieStandLocations('Seattle', 23, 65, 6.3);
+// //assign objects here
+// const seattle = {
+//     location: 'Seattle',
+//     minCustomers: 23,
+//     maxCutsomers: 65,
+//     avgSales: 6.3,
+//     sales: [],
+//     customers: [],
+//     getSales: function () {
+//         for (let k = 0; k < this.customers.length; k += 1) {
+//             this.sales.push(parseInt(this.customers[k] * this.avgSales));
+//         }
+//     },
+//     getCustomers: function () {
+//         for (let k = 0; k < 14; k += 1) {
+//             let max = this.maxCutsomers;
+//             let min = this.minCustomers;
+//             let randomInt = Math.random() * (max - min) + min;
+//             this.customers.push(parseInt(randomInt));
+//         }
+//     },
+// };
 
-const lima = {
-    location: 'Lima',
-    minCustomers: 2,
-    maxCutsomers: 16,
-    avgSales: 4.6,
-    sales: [],
-    customers: [],
-    getSales: function () {
-        for (let k = 0; k < this.customers.length; k += 1) {
-            this.sales.push(parseInt(this.customers[k] * this.avgSales));
-        }
-    },
-    getCustomers: function () {
-        for (let k = 0; k < 14; k += 1) {
-            let max = this.maxCutsomers;
-            let min = this.minCustomers;
-            let randomInt = Math.random() * (max - min) + min;
-            this.customers.push(parseInt(randomInt));
-        }
-    },
-};
+// const tokyo = {
+//     location: 'Tokyo',
+//     minCustomers: 3,
+//     maxCutsomers: 24,
+//     avgSales: 1.2,
+//     sales: [],
+//     customers: [],
+//     getSales: function () {
+//         for (let k = 0; k < this.customers.length; k += 1) {
+//             this.sales.push(parseInt(this.customers[k] * this.avgSales));
+//         }
+//     },
+//     getCustomers: function () {
+//         for (let k = 0; k < 14; k += 1) {
+//             let max = this.maxCutsomers;
+//             let min = this.minCustomers;
+//             let randomInt = Math.random() * (max - min) + min;
+//             this.customers.push(parseInt(randomInt));
+//         }
+//     },
+// };
 
-const paris = {
-    location: 'Paris',
-    minCustomers: 20,
-    maxCutsomers: 38,
-    avgSales: 2.3,
-    sales: [],
-    customers: [],
-    getSales: function () {
-        for (let k = 0; k < this.customers.length; k += 1) {
-            this.sales.push(parseInt(this.customers[k] * this.avgSales));
-        }
-    },
-    getCustomers: function () {
-        for (let k = 0; k < 14; k += 1) {
-            let max = this.maxCutsomers;
-            let min = this.minCustomers;
-            let randomInt = Math.random() * (max - min) + min;
-            this.customers.push(parseInt(randomInt));
-        }
-    },
-};
+// const dubai = {
+//     location: 'Dubai',
+//     minCustomers: 11,
+//     maxCutsomers: 38,
+//     avgSales: 3.7,
+//     sales: [],
+//     customers: [],
+//     getSales: function () {
+//         for (let k = 0; k < this.customers.length; k += 1) {
+//             this.sales.push(parseInt(this.customers[k] * this.avgSales));
+//         }
+//     },
+//     getCustomers: function () {
+//         for (let k = 0; k < 14; k += 1) {
+//             let max = this.maxCutsomers;
+//             let min = this.minCustomers;
+//             let randomInt = Math.random() * (max - min) + min;
+//             this.customers.push(parseInt(randomInt));
+//         }
+//     },
+// };
+
+// const lima = {
+//     location: 'Lima',
+//     minCustomers: 2,
+//     maxCutsomers: 16,
+//     avgSales: 4.6,
+//     sales: [],
+//     customers: [],
+//     getSales: function () {
+//         for (let k = 0; k < this.customers.length; k += 1) {
+//             this.sales.push(parseInt(this.customers[k] * this.avgSales));
+//         }
+//     },
+//     getCustomers: function () {
+//         for (let k = 0; k < 14; k += 1) {
+//             let max = this.maxCutsomers;
+//             let min = this.minCustomers;
+//             let randomInt = Math.random() * (max - min) + min;
+//             this.customers.push(parseInt(randomInt));
+//         }
+//     },
+// };
+
+// const paris = {
+//     location: 'Paris',
+//     minCustomers: 20,
+//     maxCutsomers: 38,
+//     avgSales: 2.3,
+//     sales: [],
+//     customers: [],
+//     getSales: function () {
+//         for (let k = 0; k < this.customers.length; k += 1) {
+//             this.sales.push(parseInt(this.customers[k] * this.avgSales));
+//         }
+//     },
+//     getCustomers: function () {
+//         for (let k = 0; k < 14; k += 1) {
+//             let max = this.maxCutsomers;
+//             let min = this.minCustomers;
+//             let randomInt = Math.random() * (max - min) + min;
+//             this.customers.push(parseInt(randomInt));
+//         }
+//     },
+// };
 
 const bodyElem = document.getElementById('body');
 
@@ -147,8 +171,10 @@ function render(cookieStand) {
     totalElem.textContent = `Total: ${total} cookies`;
 }
 
+
+
 render(seattle);
-render(tokyo);
-render(dubai);
-render(paris);
-render(lima);
+// render(tokyo);
+// render(dubai);
+// render(paris);
+// render(lima);
