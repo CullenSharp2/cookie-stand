@@ -29,7 +29,6 @@
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 const tableElem = document.createElement('table');
 const bodyElem = document.getElementById('body');
-// let objList = []; // not in use
 
 let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSales) {
     this.location = location;
@@ -82,25 +81,19 @@ CookieStandLocations.prototype.render = function (hours) {
 
     // for loop to add sales data to table
     for (let i = 0; i < this.sales.length; i += 1) {
-        //create table data
         tableDataElem = document.createElement('td');
         tableDataText = document.createTextNode(`${this.sales[i]} Cookies `);
         tableDataElem.appendChild(tableDataText);
 
-        //append to row
         tableRowElem.appendChild(tableDataElem);
     }
 
-
-
+    // add total to row
     tableDataElem = document.createElement('td');
     tableDataText = document.createTextNode(`${total} Cookies`);
     tableDataElem.appendChild(tableDataText);
-
-    //add total to row
     tableRowElem.appendChild(tableDataElem);
 
-    //append row to table
     tableElem.appendChild(tableRowElem);
 }
 
@@ -118,7 +111,7 @@ function renderTable(hours) {
     tableHeaderElem = document.createElement('th');
     tableRowElem.appendChild(tableHeaderElem);
 
-    //add date headers
+    //add time headers
     for (let i = 0; i < hours.length; i += 1) {
         tableHeaderElem = document.createElement('th');
         headerText = document.createTextNode(hours[i]);
@@ -134,7 +127,11 @@ function renderTable(hours) {
     tableElem.appendChild(tableRowElem);
 }
 
+// render column headers
+// add table to DOM
 renderTable(hours);
+
+// populate table with data
 seattle.render(hours);
 tokyo.render(hours);
 dubai.render(hours);
@@ -142,43 +139,3 @@ paris.render(hours);
 lima.render(hours);
 
 bodyElem.appendChild(tableElem);
-
-// function render(cookieStand) {
-//     
-//     const newHeaderElem = document.createElement('h2');
-//     const newUlElem = document.createElement('ul');
-//     const newBoxElem = document.createElement('article');
-//     const totalElem = document.createElement('li');
-
-//     let newLiElem;
-//     let total = 0;
-
-//     bodyElem.appendChild(newBoxElem);
-
-//     newBoxElem.appendChild(newHeaderElem);
-//     newHeaderElem.textContent = cookieStand.location;
-
-//     newBoxElem.appendChild(newUlElem);
-
-//     cookieStand.getCustomers(hours)
-//     cookieStand.getSales()
-
-//     for (let i = 0; i < cookieStand.sales.length; i += 1) {
-//         newLiElem = document.createElement('li');
-//         newLiElem.textContent = `${hours[i]}: ${cookieStand.sales[i]} cookies`
-//         newUlElem.appendChild(newLiElem);
-//     }
-
-//     for (let j = 0; j < cookieStand.sales.length; j += 1) {
-//         total += cookieStand.sales[j];
-//     }
-
-//     newUlElem.appendChild(totalElem);
-//     totalElem.textContent = `Total: ${total} cookies`;
-// }
-
-// render(seattle);
-// render(tokyo);
-// render(dubai);
-// render(paris);
-// render(lima);
