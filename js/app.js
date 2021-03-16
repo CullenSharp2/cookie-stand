@@ -8,22 +8,25 @@ let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSa
     this.avgSales = avgSales;
     this.customers = [];
     this.sales = [];
-    this.getSales = function () {
-        for (let k = 0; k < this.customers.length; k += 1) {
-            this.sales.push(parseInt(this.customers[k] * this.avgSales));
-        }
+}
+
+CookieStandLocations.prototype.getCustomers = function () {
+    for (let k = 0; k < 14; k += 1) {
+        let max = this.maxCutsomers;
+        let min = this.minCustomers;
+        let randomInt = Math.random() * (max - min) + min;
+        this.customers.push(parseInt(randomInt));
     }
-    this.getCustomers = function () {
-        for (let k = 0; k < 14; k += 1) {
-            let max = this.maxCutsomers;
-            let min = this.minCustomers;
-            let randomInt = Math.random() * (max - min) + min;
-            this.customers.push(parseInt(randomInt));
-        }
+}
+
+CookieStandLocations.prototype.getSales = function () {
+    for (let k = 0; k < this.customers.length; k += 1) {
+        this.sales.push(parseInt(this.customers[k] * this.avgSales));
     }
 }
 
 let seattle = new CookieStandLocations('Seattle', 23, 65, 6.3);
+let tokyo = new CookieStandLocations('tokyo', 3, 24, 1.2);
 // //assign objects here
 // const seattle = {
 //     location: 'Seattle',
@@ -174,7 +177,7 @@ function render(cookieStand) {
 
 
 render(seattle);
-// render(tokyo);
+render(tokyo);
 // render(dubai);
 // render(paris);
 // render(lima);
