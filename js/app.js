@@ -26,6 +26,8 @@
 
 'use strict'
 
+const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+const tableElem = document.createElement('table');
 const bodyElem = document.getElementById('body');
 // let objList = []; // not in use
 
@@ -68,12 +70,16 @@ const dubai = new CookieStandLocations('Dubai', 11, 38, 3.7);
 const paris = new CookieStandLocations('Paris', 20, 38, 2.3);
 const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
-function renderTable(){
-    //get ref to body
-    const tableElem = document.createElement(table);
-    const bodyElemRef = document.getElementById('body');
-    // const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-    
+function renderTable(hours) {
+    let tableHeaderElem;
+    let tableRowElem;
+    let headerText;
+
+    for(let i = 0; i < hours.length; i += 1) {
+        //create a new row
+        tableRowElem = document.createElement('tr');
+        
+    }
 }
 // function render(cookieStand) {
 //     
