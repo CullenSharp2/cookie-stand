@@ -51,7 +51,7 @@ CookieStandLocations.prototype.getCustomers = function (hours) {
 
 CookieStandLocations.prototype.getSales = function () {
     for (let i = 0; i < this.customers.length; i += 1) {
-        this.sales.push(parseInt(this.customers[i] * this.avgSales));
+        this.sales.push(Math.floor(this.customers[i] * this.avgSales));
     }
 }
 
