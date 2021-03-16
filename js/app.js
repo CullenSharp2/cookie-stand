@@ -55,13 +55,19 @@ CookieStandLocations.prototype.getSales = function () {
     }
 }
 
-CookieStandLocations.prototype.render = function () {
+CookieStandLocations.prototype.render = function (hours) {
     let tableHeaderElem;
     let headerText;
     let tableData;
     let tableDataText;
     let total = 0;
 
+    this.getCustomers(hours);
+    this.getSales();
+
+    for (let j = 0; j < hours.sales; j += 1) {
+        total = total + this.sales;
+    }
     tableHeaderElem;
 }
 
