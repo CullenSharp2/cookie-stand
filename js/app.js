@@ -29,6 +29,8 @@
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 const tableElem = document.createElement('table');
 const bodyElem = document.getElementById('body');
+let hourlyTotal = [];
+let globalTotal = 0;
 
 let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSales) {
     this.location = location;
@@ -75,7 +77,10 @@ CookieStandLocations.prototype.render = function (hours) {
     // calculate total
     for (let j = 0; j < this.sales.length; j += 1) {
         total += this.sales[j];
+        hourlyTotal[j] = this.sales[j];
     }
+
+    console.log(hourlyTotal);
 
     // for loop to add sales data to table
     for (let i = 0; i < this.sales.length; i += 1) {
