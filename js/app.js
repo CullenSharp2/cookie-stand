@@ -72,7 +72,13 @@ CookieStandLocations.prototype.render = function (hours) {
     // generate customers/sales
     this.getCustomers(hours);
     this.getSales();
-    console.log(this.sales, this.customers);
+
+    // calculate total
+    for (let j = 0; j < this.sales.length; j += 1) {
+        total += this.sales[j];
+    }
+
+    console.log(total);
 
     // for loop to add sales data to table
     for (let i = 0; i < this.sales; i += 1) {
@@ -85,10 +91,7 @@ CookieStandLocations.prototype.render = function (hours) {
         tableRowElem.appendChild(tableDataElem);
     }
 
-    // calculate total
-    for (let j = 0; j < this.sales; j += 1) {
-        total = total + this.sales[j];
-    }
+
 
     tableDataElem = document.createElement('td');
     tableDataText = document.createTextNode(`${total} cookies`);
