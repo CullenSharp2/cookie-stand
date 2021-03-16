@@ -57,16 +57,20 @@ const dubai = {
 
 const lima = {
     location: 'Lima',
+    minCustomers: 2,
+    maxCutsomers: 16,
+    avgSales: 4.6,
     sales: [],
     customers: [],
-    getSales: function (min, max) {
-        for (let k = 0; k < 14; k += 1) {
-            let randomInt = Math.random() * (max - min) + min;
-            this.sales.push(parseInt(randomInt));
+    getSales: function () {
+        for (let k = 0; k < this.customers.length; k += 1) {
+            this.sales.push(parseInt(this.customers[k] * this.avgSales));
         }
     },
-    getCustomers: function (min, max) {
+    getCustomers: function () {
         for (let k = 0; k < 14; k += 1) {
+            let max = this.maxCutsomers;
+            let min = this.minCustomers;
             let randomInt = Math.random() * (max - min) + min;
             this.customers.push(parseInt(randomInt));
         }
@@ -135,4 +139,4 @@ function render(cookieStand) {
 // render(tokyo);
 // render(dubai);
 render(paris);
-// render(lima);
+render(lima);
