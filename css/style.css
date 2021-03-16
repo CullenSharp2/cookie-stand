@@ -28,7 +28,7 @@ body {
 }
 
 table {
-    /* display: static; */
+    display: static;
     min-width: 30%;
     max-width: 40%;
     margin: 10% auto;
