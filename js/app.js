@@ -71,33 +71,21 @@ const paris = new CookieStandLocations('Paris', 20, 38, 2.3);
 const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
 function renderTable(hours) {
-    //create row
     let tableRowElem = document.createElement('tr');
     let tableHeaderElem;
     let headerText;
 
-    //create empty header
     tableHeaderElem = document.createElement('th');
-
-    //append to row
     tableRowElem.appendChild(tableHeaderElem);
 
     //add date headers
     for (let i = 0; i < hours.length; i += 1) {
-        //create table header
         tableHeaderElem = document.createElement('th');
-
-        //create text
         headerText = document.createTextNode(hours[i]);
-
-        //append text to headerElem
         tableHeaderElem.appendChild(headerText);
-
-        //append header to row
         tableRowElem.appendChild(tableHeaderElem);
     }
 
-    //append to table 
     tableElem.appendChild(tableRowElem);
 }
 
