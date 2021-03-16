@@ -53,13 +53,14 @@ CookieStandLocations.prototype.getSales = function () {
     }
 }
 
-CookieStandLocations.prototype.render = function () {
-    //get reference to table element
-    //const TableElemRef = document.getElementById()
+//store for later
+// CookieStandLocations.prototype.render = function () {
+//     //get reference to table element
+//     //const tableElemRef = document.getElementById()
 
-    let tableDataElem;
+//     let tableDataElem;
 
-}
+// }
 
 const seattle = new CookieStandLocations('Seattle', 23, 65, 6.3);
 const tokyo = new CookieStandLocations('Tokyo', 3, 24, 1.2);
@@ -68,10 +69,14 @@ const paris = new CookieStandLocations('Paris', 20, 38, 2.3);
 const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
 function renderTable(){
-
+    //get ref to body
+    const tableElem = document.createElement(table);
+    const bodyElemRef = document.getElementById('body');
+    // const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+    
 }
 // function render(cookieStand) {
-//     const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+//     
 //     const newHeaderElem = document.createElement('h2');
 //     const newUlElem = document.createElement('ul');
 //     const newBoxElem = document.createElement('article');
