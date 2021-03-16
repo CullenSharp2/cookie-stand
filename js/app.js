@@ -3,16 +3,20 @@
 //assign objects here
 const seattle = {
     location: 'Seattle',
+    minCustomers: 23,
+    maxCutsomers: 65,
+    avgSales: 6.3,
     sales: [],
     customers: [],
-    getSales: function (min, max) {
-        for (let k = 0; k < 14; k += 1) {
-            let randomInt = Math.random() * (max - min) + min;
-            this.sales.push(parseInt(randomInt));
+    getSales: function () {
+        for (let k = 0; k < this.customers.length; k += 1) {
+            this.sales.push(parseInt(this.customers[k] * this.avgSales));
         }
     },
-    getCustomers: function (min, max) {
+    getCustomers: function () {
         for (let k = 0; k < 14; k += 1) {
+            let max = this.maxCutsomers;
+            let min = this.minCustomers;
             let randomInt = Math.random() * (max - min) + min;
             this.customers.push(parseInt(randomInt));
         }
@@ -21,16 +25,20 @@ const seattle = {
 
 const tokyo = {
     location: 'Tokyo',
+    minCustomers: 3,
+    maxCutsomers: 24,
+    avgSales: 1.2,
     sales: [],
     customers: [],
-    getSales: function (min, max) {
-        for (let k = 0; k < 14; k += 1) {
-            let randomInt = Math.random() * (max - min) + min;
-            this.sales.push(parseInt(randomInt));
+    getSales: function () {
+        for (let k = 0; k < this.customers.length; k += 1) {
+            this.sales.push(parseInt(this.customers[k] * this.avgSales));
         }
     },
-    getCustomers: function (min, max) {
+    getCustomers: function () {
         for (let k = 0; k < 14; k += 1) {
+            let max = this.maxCutsomers;
+            let min = this.minCustomers;
             let randomInt = Math.random() * (max - min) + min;
             this.customers.push(parseInt(randomInt));
         }
@@ -39,16 +47,20 @@ const tokyo = {
 
 const dubai = {
     location: 'Dubai',
+    minCustomers: 11,
+    maxCutsomers: 38,
+    avgSales: 3.7,
     sales: [],
     customers: [],
-    getSales: function (min, max) {
-        for (let k = 0; k < 14; k += 1) {
-            let randomInt = Math.random() * (max - min) + min;
-            this.sales.push(parseInt(randomInt));
+    getSales: function () {
+        for (let k = 0; k < this.customers.length; k += 1) {
+            this.sales.push(parseInt(this.customers[k] * this.avgSales));
         }
     },
-    getCustomers: function (min, max) {
+    getCustomers: function () {
         for (let k = 0; k < 14; k += 1) {
+            let max = this.maxCutsomers;
+            let min = this.minCustomers;
             let randomInt = Math.random() * (max - min) + min;
             this.customers.push(parseInt(randomInt));
         }
@@ -135,8 +147,8 @@ function render(cookieStand) {
     totalElem.textContent = `Total: ${total} cookies`;
 }
 
-// render(seattle);
-// render(tokyo);
-// render(dubai);
+render(seattle);
+render(tokyo);
+render(dubai);
 render(paris);
 render(lima);
