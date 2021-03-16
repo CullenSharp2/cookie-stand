@@ -80,7 +80,7 @@ function renderTable(hours) {
     tableHeaderElem = document.createElement('th');
 
     //append to row
-    tableRowElem.appendChild('th');
+    tableRowElem.appendChild(tableHeaderElem);
 
     //add date headers
     for (let i = 0; i < hours.length; i += 1) {
