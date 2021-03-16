@@ -55,14 +55,15 @@ CookieStandLocations.prototype.getSales = function () {
     }
 }
 
-//store for later
-// CookieStandLocations.prototype.render = function () {
-//     //get reference to table element
-//     //const tableElemRef = document.getElementById()
+CookieStandLocations.prototype.render = function () {
+    let tableHeaderElem;
+    let headerText;
+    let tableData;
+    let tableDataText;
+    let total = 0;
 
-//     let tableDataElem;
-
-// }
+    tableHeaderElem;
+}
 
 const seattle = new CookieStandLocations('Seattle', 23, 65, 6.3);
 const tokyo = new CookieStandLocations('Tokyo', 3, 24, 1.2);
@@ -85,6 +86,11 @@ function renderTable(hours) {
         tableHeaderElem.appendChild(headerText);
         tableRowElem.appendChild(tableHeaderElem);
     }
+
+    tableHeaderElem = document.createElement('th');
+    headerText = document.createTextNode('Total');
+    tableHeaderElem.appendChild(headerText);
+    tableRowElem.appendChild(tableHeaderElem);
 
     tableElem.appendChild(tableRowElem);
 }
