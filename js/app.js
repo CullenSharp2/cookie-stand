@@ -25,74 +25,11 @@ CookieStandLocations.prototype.getSales = function () {
     }
 }
 
-let seattle = new CookieStandLocations('Seattle', 23, 65, 6.3);
-let tokyo = new CookieStandLocations('tokyo', 3, 24, 1.2);
-// //assign objects here
-// const seattle = {
-//     location: 'Seattle',
-//     minCustomers: 23,
-//     maxCutsomers: 65,
-//     avgSales: 6.3,
-//     sales: [],
-//     customers: [],
-//     getSales: function () {
-//         for (let k = 0; k < this.customers.length; k += 1) {
-//             this.sales.push(parseInt(this.customers[k] * this.avgSales));
-//         }
-//     },
-//     getCustomers: function () {
-//         for (let k = 0; k < 14; k += 1) {
-//             let max = this.maxCutsomers;
-//             let min = this.minCustomers;
-//             let randomInt = Math.random() * (max - min) + min;
-//             this.customers.push(parseInt(randomInt));
-//         }
-//     },
-// };
-
-// const tokyo = {
-//     location: 'Tokyo',
-//     minCustomers: 3,
-//     maxCutsomers: 24,
-//     avgSales: 1.2,
-//     sales: [],
-//     customers: [],
-//     getSales: function () {
-//         for (let k = 0; k < this.customers.length; k += 1) {
-//             this.sales.push(parseInt(this.customers[k] * this.avgSales));
-//         }
-//     },
-//     getCustomers: function () {
-//         for (let k = 0; k < 14; k += 1) {
-//             let max = this.maxCutsomers;
-//             let min = this.minCustomers;
-//             let randomInt = Math.random() * (max - min) + min;
-//             this.customers.push(parseInt(randomInt));
-//         }
-//     },
-// };
-
-// const dubai = {
-//     location: 'Dubai',
-//     minCustomers: 11,
-//     maxCutsomers: 38,
-//     avgSales: 3.7,
-//     sales: [],
-//     customers: [],
-//     getSales: function () {
-//         for (let k = 0; k < this.customers.length; k += 1) {
-//             this.sales.push(parseInt(this.customers[k] * this.avgSales));
-//         }
-//     },
-//     getCustomers: function () {
-//         for (let k = 0; k < 14; k += 1) {
-//             let max = this.maxCutsomers;
-//             let min = this.minCustomers;
-//             let randomInt = Math.random() * (max - min) + min;
-//             this.customers.push(parseInt(randomInt));
-//         }
-//     },
-// };
+const seattle = new CookieStandLocations('Seattle', 23, 65, 6.3);
+const tokyo = new CookieStandLocations('Tokyo', 3, 24, 1.2);
+const dubai = new CookieStandLocations('Dubai', 11, 38, 3.7);
+const paris = new CookieStandLocations('Paris', 20, 38, 2.3);
+const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
 // const lima = {
 //     location: 'Lima',
@@ -178,6 +115,6 @@ function render(cookieStand) {
 
 render(seattle);
 render(tokyo);
-// render(dubai);
-// render(paris);
-// render(lima);
+render(dubai);
+render(paris);
+render(lima);
