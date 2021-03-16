@@ -19,9 +19,9 @@
     Tasks:
     [x] Create new branch 
     [x] Replace object literals with constructors and instances
-    [] Create a table to contain all the sales data by location.
-    [] Declare the function to append table children as a method
-    [] Render table headers/footers as a seperate function
+    [x] Create a table to contain all the sales data by location.
+    [x] Declare the function to append table children as a method
+    [x] Render table headers/footers as a seperate function
 */
 
 'use strict'
