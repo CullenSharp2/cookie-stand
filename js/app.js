@@ -29,6 +29,7 @@
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 const tableElem = document.createElement('table');
 const bodyElem = document.getElementById('body');
+let globalTotal = 0;
 
 let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSales) {
     this.location = location;
@@ -37,7 +38,11 @@ let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSa
     this.avgSales = avgSales;
     this.customers = [];
     this.sales = [];
+    CookieStandLocations.testArr.push(this);
 }
+
+//rename me later
+CookieStandLocations.testArr = [];
 
 CookieStandLocations.prototype.getCustomers = function (hours) {
     for (let i = 0; i < hours.length; i += 1) {
@@ -57,15 +62,15 @@ CookieStandLocations.prototype.getSales = function () {
 CookieStandLocations.prototype.render = function (hours) {
     const tableRowElem = document.createElement('tr');
     let rowHeaderElem;
-    let headerText;
+    let tableHeaderText;
     let tableDataElem;
     let tableDataText;
     let total = 0;
 
     //add row header
     rowHeaderElem = document.createElement('th');
-    headerText = document.createTextNode(this.location);
-    rowHeaderElem.appendChild(headerText);
+    tableHeaderText = document.createTextNode(this.location);
+    rowHeaderElem.appendChild(tableHeaderText);
     tableRowElem.appendChild(rowHeaderElem);
 
     // generate customers/sales
@@ -135,5 +140,36 @@ tokyo.render(hours);
 dubai.render(hours);
 paris.render(hours);
 lima.render(hours);
+
+function renderHourlyTotal(hours) {
+    const tableRowElem = document.createElement('tr');
+    let tableDataElem;
+    let tableDataText;
+    let tableHeaderText;
+
+    let tableHeaderElem = document.createElement('th');
+    tableHeaderText = document.createTextNode('Hourly Total');
+    tableHeaderElem.appendChild(tableHeaderText);
+    tableRowElem.appendChild(tableHeaderElem);
+
+    for (let i = 0; i < hours.length; i += 1){
+        let hourlyTotal = 0;
+        for(let j = 0; j < CookieStandLocations.testArr.length; j += 1) {
+            hourlyTotal += CookieStandLocations.testArr[j].sales[i];
+        }
+
+        tableDataElem = document.createElement('td');
+        tableDataText = document.createTextNode(`${hourlyTotal} Cookies`);
+        tableDataElem.appendChild(tableDataText);
+
+        tableRowElem.appendChild(tableDataElem);
+    }
+    tableDataElem = document.createElement('td')
+    tableRowElem.append(tableDataElem);
+
+    tableElem.appendChild(tableRowElem);
+}
+
+renderHourlyTotal(hours);
 
 bodyElem.appendChild(tableElem);
