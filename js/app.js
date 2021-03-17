@@ -29,7 +29,6 @@
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 const tableElem = document.createElement('table');
 const bodyElem = document.getElementById('body');
-let globalTotal = 0;
 
 let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSales) {
     this.location = location;
@@ -123,7 +122,7 @@ function renderTable(hours) {
     }
 
     tableHeaderElem = document.createElement('th');
-    headerText = document.createTextNode('Total');
+    headerText = document.createTextNode('Daily Total');
     tableHeaderElem.appendChild(headerText);
     tableRowElem.appendChild(tableHeaderElem);
 
@@ -146,6 +145,7 @@ function renderHourlyTotal(hours) {
     let tableDataElem;
     let tableDataText;
     let tableHeaderText;
+    let total = 0;
 
     let tableHeaderElem = document.createElement('th');
     tableHeaderText = document.createTextNode('Hourly Total');
@@ -156,6 +156,7 @@ function renderHourlyTotal(hours) {
         let hourlyTotal = 0;
         for(let j = 0; j < CookieStandLocations.testArr.length; j += 1) {
             hourlyTotal += CookieStandLocations.testArr[j].sales[i];
+            total += hourlyTotal;
         }
 
         tableDataElem = document.createElement('td');
@@ -164,7 +165,9 @@ function renderHourlyTotal(hours) {
 
         tableRowElem.appendChild(tableDataElem);
     }
-    tableDataElem = document.createElement('td')
+    tableDataElem = document.createElement('td');
+    tableDataText = document.createTextNode(`${total} Cookies`);
+    tableDataElem.appendChild(tableDataText);
     tableRowElem.append(tableDataElem);
 
     tableElem.appendChild(tableRowElem);
