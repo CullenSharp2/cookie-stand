@@ -16,9 +16,11 @@ let CookieStandLocations = function (location, minCustomers, maxCustomers, avgSa
     this.customers = [];
     this.sales = [];
 
-    console.log(this);
-
     CookieStandLocations.cookieStands.push(this);
+
+    // generate customers/sales
+    this.getCustomers(hours);
+    this.getSales();
 }
 
 CookieStandLocations.cookieStands = [];
@@ -52,19 +54,15 @@ CookieStandLocations.prototype.render = function (hours) {
     rowHeaderElem.appendChild(tableHeaderText);
     tableRowElem.appendChild(rowHeaderElem);
 
-    // generate customers/sales
-    this.getCustomers(hours);
-    this.getSales();
-
     // calculate total
-    for (let j = 0; j < this.sales.length; j += 1) {
-        total += this.sales[j];
+    for (let i = 0; i < this.sales.length; i += 1) {
+        total += this.sales[i];
     }
 
     // for loop to add sales data to table
-    for (let i = 0; i < this.sales.length; i += 1) {
+    for (let j = 0; j < this.sales.length; j += 1) {
         tableDataElem = document.createElement('td');
-        tableDataText = document.createTextNode(`${this.sales[i]} Cookies `);
+        tableDataText = document.createTextNode(`${this.sales[j]} Cookies `);
         tableDataElem.appendChild(tableDataText);
 
         tableRowElem.appendChild(tableDataElem);
@@ -128,7 +126,7 @@ function renderTable(hours) {
     tableHeaderElem = document.createElement('th');
     tableRowElem.appendChild(tableHeaderElem);
 
-    //add time headers
+    //add column headers
     for (let i = 0; i < hours.length; i += 1) {
         tableHeaderElem = document.createElement('th');
         headerText = document.createTextNode(hours[i]);
@@ -150,30 +148,28 @@ function renderTable(hours) {
     renderFooter(hours);
 
     bodyElem.appendChild(tableElem);
+
+    console.log(CookieStandLocations.cookieStands);
 }
 
-// render column headers
-// add table to DOM
+function addCookieStandHandler(event) {
+    event.preventDefault();
+
+    const location = event.target.location.value;
+    const minCustomers = parseInt(event.target.minCustomers.value);
+    const maxCustomers = parseInt(event.target.maxCustomers.value);
+    const avgSales = parseInt(event.target.avgSales.value);
+
+    const newCookieStand = new CookieStandLocations(location, minCustomers, maxCustomers, avgSales);
+
+    tableElem.innerHTML = '';
+
+    renderTable(hours);
+
+    event.target.reset();
+}
+
+const cookieStandForm = document.getElementById('cookieStand-form');
+cookieStandForm.addEventListener('submit', addCookieStandHandler);
+
 renderTable(hours);
-
-// function addCookieStandHandler(event) {
-//     event.preventDefault();
-
-//     const location = event.target.location.value;
-//     const minCustomers = event.target.minCustomers.value;
-//     const maxCustomers = event.target.maxCustomers.value;
-//     const avgSales = event.target.avgSales.value;
-
-//     const newCookieStand = new CookieStandLocations(location, minCustomers, maxCustomers, avgSales);
-
-//     console.log(newCookieStand);
-
-//     tableElem.innerHTML = '';
-
-//     // render table function here
-
-//     event.target.reset();
-// }
-
-// const cookieStandForm = document.getElementById('cookieStand-form');
-// cookieStandForm.addEventListener('submit', addCookieStandHandler);
