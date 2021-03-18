@@ -85,42 +85,7 @@ const dubai = new CookieStandLocations('Dubai', 11, 38, 3.7);
 const paris = new CookieStandLocations('Paris', 20, 38, 2.3);
 const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
-function renderTable(hours) {
-    const tableRowElem = document.createElement('tr');
-    const len =  CookieStandLocations.cookieStands.length;
-
-    let tableHeaderElem;
-    let headerText;
-
-    tableHeaderElem = document.createElement('th');
-    tableRowElem.appendChild(tableHeaderElem);
-
-    //add time headers
-    for (let i = 0; i < hours.length; i += 1) {
-        tableHeaderElem = document.createElement('th');
-        headerText = document.createTextNode(hours[i]);
-        tableHeaderElem.appendChild(headerText);
-        tableRowElem.appendChild(tableHeaderElem);
-    }
-
-    tableHeaderElem = document.createElement('th');
-    headerText = document.createTextNode('Daily Total');
-    tableHeaderElem.appendChild(headerText);
-    tableRowElem.appendChild(tableHeaderElem);
-
-    tableElem.appendChild(tableRowElem);
-
-    for(let j = 0; j < len; j += 1) {
-        CookieStandLocations.cookieStands[j].render(hours);
-    }
-}
-
-// render column headers
-// add table to DOM
-renderTable(hours);
-
-
-function renderHourlyTotal(hours) {
+function renderFooter(hours) {
     const tableRowElem = document.createElement('tr');
     let tableDataElem;
     let tableDataText;
@@ -153,6 +118,44 @@ function renderHourlyTotal(hours) {
     tableElem.appendChild(tableRowElem);
 }
 
+function renderTable(hours) {
+    const tableRowElem = document.createElement('tr');
+    const len = CookieStandLocations.cookieStands.length;
+
+    let tableHeaderElem;
+    let headerText;
+
+    tableHeaderElem = document.createElement('th');
+    tableRowElem.appendChild(tableHeaderElem);
+
+    //add time headers
+    for (let i = 0; i < hours.length; i += 1) {
+        tableHeaderElem = document.createElement('th');
+        headerText = document.createTextNode(hours[i]);
+        tableHeaderElem.appendChild(headerText);
+        tableRowElem.appendChild(tableHeaderElem);
+    }
+
+    tableHeaderElem = document.createElement('th');
+    headerText = document.createTextNode('Daily Total');
+    tableHeaderElem.appendChild(headerText);
+    tableRowElem.appendChild(tableHeaderElem);
+
+    tableElem.appendChild(tableRowElem);
+
+    for (let j = 0; j < len; j += 1) {
+        CookieStandLocations.cookieStands[j].render(hours);
+    }
+
+    renderFooter(hours);
+
+    bodyElem.appendChild(tableElem);
+}
+
+// render column headers
+// add table to DOM
+renderTable(hours);
+
 // function addCookieStandHandler(event) {
 //     event.preventDefault();
 
@@ -174,7 +177,3 @@ function renderHourlyTotal(hours) {
 
 // const cookieStandForm = document.getElementById('cookieStand-form');
 // cookieStandForm.addEventListener('submit', addCookieStandHandler);
-
-renderHourlyTotal(hours);
-
-bodyElem.appendChild(tableElem);
