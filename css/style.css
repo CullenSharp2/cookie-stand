@@ -86,6 +86,7 @@ header figcaption {
 main {
     text-align: center;
 }
+
 #hero {
     display: flex;
     width: fit-content;
@@ -130,19 +131,20 @@ main section h3 {
 }
 
 #sales {
+    width: 960px;
     display: flex;
-    align-content: center;
+    margin: 0 auto;
+    align-content: flex-start;
     position: relative;
     top: 15rem;
-    left: 10.4rem;
     font-weight: 700;
 }
 table {
     position: relative;
-    min-width: 60%;
-    max-width: 80%;
-    top: 17rem;
+    max-width: 960px;
+    top: 18rem;
     margin: 0 auto;
+    margin-bottom: 1rem;
     border: solid grey .1rem;
     padding: 1rem;
     font-size: .5rem; 
@@ -166,7 +168,40 @@ td {
     border: solid grey .1rem;
     padding: 1rem;
     color: black;
-    font-size: .6rem;
+    font-size: .7rem;
     text-align: left;
     background-color: ghostwhite;
 }
+
+table td:nth-child(even){background-color: rgb(216, 216, 216);}
+
+table tr:hover td{
+    background-color: springgreen;
+}
+
+table tr:hover th{
+    color: black;
+}
+
+form {
+    position: relative;
+    top: 14rem;
+    width: fit-content;
+    margin: 0 auto;
+    border: solid black .1rem;
+    padding: 1rem;
+    background: rgb(216, 216, 216);
+}
+
+legend {
+    padding-bottom: 1rem;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+label {
+    display: block;
+    padding-bottom: 1rem;
+}
+
