@@ -87,9 +87,9 @@ main {
     text-align: center;
 }
 
-#hero {
+#hero img {
     display: flex;
-    width: fit-content;
+    width: 100%;
     justify-content: center;
     align-content: center;
     margin: 0 auto;

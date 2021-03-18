@@ -40,6 +40,28 @@ CookieStandLocations.prototype.getSales = function () {
     }
 }
 
+function createCells(loops, tag, parent, text) {
+    if (typeof (text) === "object") {
+        for (let i = 0; i < loops; i += 1) {
+            let newCell = document.createElement(tag);
+            let newTextNode = document.createTextNode(text[i]);
+            newCell.appendChild(newTextNode);
+            parent.appendChild(newCell);
+        }
+    } else {
+        for (let j = 0; j < loops; j += 1) {
+            let newCell = document.createElement(tag);
+            let newTextNode = document.createTextNode(text);
+            newCell.appendChild(newTextNode);
+            parent.appendChild(newCell);
+        }
+    }
+}
+// function createChild (tag, parent, text) {
+//     const newElem = document.createElement(parent);
+//     let newTextNode = document.createTextNode('text');
+// }
+
 CookieStandLocations.prototype.render = function (hours) {
     const tableRowElem = document.createElement('tr');
     let rowHeaderElem;
@@ -119,6 +141,7 @@ function renderFooter(hours) {
 function renderTable(hours) {
     const tableRowElem = document.createElement('tr');
     const len = CookieStandLocations.cookieStands.length;
+    let i = 0;
 
     let tableHeaderElem;
     let headerText;
@@ -127,12 +150,13 @@ function renderTable(hours) {
     tableRowElem.appendChild(tableHeaderElem);
 
     //add column headers
-    for (let i = 0; i < hours.length; i += 1) {
-        tableHeaderElem = document.createElement('th');
-        headerText = document.createTextNode(hours[i]);
-        tableHeaderElem.appendChild(headerText);
-        tableRowElem.appendChild(tableHeaderElem);
-    }
+    createCells(hours.length, 'th', tableRowElem, hours);
+    // for (let i = 0; i < hours.length; i += 1) {
+    //     tableHeaderElem = document.createElement('th');
+    //     headerText = document.createTextNode(hours[i]);
+    //     tableHeaderElem.appendChild(headerText);
+    //     tableRowElem.appendChild(tableHeaderElem);
+    // }
 
     tableHeaderElem = document.createElement('th');
     headerText = document.createTextNode('Daily Total');
