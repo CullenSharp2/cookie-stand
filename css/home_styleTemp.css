@@ -43,11 +43,51 @@ header section nav li {
     padding: 0 1rem 0 1rem;
 }
 
-header section nav a {
+a {
     text-transform: uppercase;
     text-decoration: none;
     font-size: .8rem;
     color: rgb(37, 37, 37);
 }
 
-/* header section img {} */
+a:hover {
+    color: springgreen;
+    text-decoration: underline;
+}
+
+main {
+    text-align: center;
+}
+
+main figure {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    top: 0px;
+    z-index: -1;
+}
+
+main h2 {
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 0 3rem 0;
+    font-size: 4em;
+}
+
+main section {
+    display: block;
+    width: 960px;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    border-collapse: collapse;
+    border-top: dashed rgb(37, 37, 37) .1rem;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+main section h3 {
+    text-align: left;
+    font-size: 2rem;
+}
