@@ -87,6 +87,8 @@ const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
 function renderTable(hours) {
     const tableRowElem = document.createElement('tr');
+    const len =  CookieStandLocations.cookieStands.length;
+
     let tableHeaderElem;
     let headerText;
 
@@ -107,18 +109,16 @@ function renderTable(hours) {
     tableRowElem.appendChild(tableHeaderElem);
 
     tableElem.appendChild(tableRowElem);
+
+    for(let j = 0; j < len; j += 1) {
+        CookieStandLocations.cookieStands[j].render(hours);
+    }
 }
 
 // render column headers
 // add table to DOM
 renderTable(hours);
 
-// populate table with data
-seattle.render(hours);
-tokyo.render(hours);
-dubai.render(hours);
-paris.render(hours);
-lima.render(hours);
 
 function renderHourlyTotal(hours) {
     const tableRowElem = document.createElement('tr');
