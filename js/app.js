@@ -1,5 +1,5 @@
 /*
-    Date: 03.17.21
+    Date: 03.18.21
 */
 
 'use strict'
@@ -7,6 +7,10 @@
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 const tableElem = document.createElement('table');
 const bodyElem = document.getElementById('body');
+
+function addCookieStandHandler(event) {
+    // event.preventDefault();
+}
 
 let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSales) {
     this.location = location;
