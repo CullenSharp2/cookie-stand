@@ -8,28 +8,6 @@ const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm',
 const tableElem = document.createElement('table');
 const bodyElem = document.getElementById('body');
 
-function addCookieStandHandler(event) {
-    event.preventDefault();
-
-    const location = event.target.location.value;
-    const minCustomers = event.target.minCustomers.value;
-    const maxCustomers = event.target.maxCustomers.value;
-    const avgSales = event.target.avgSales.value;
-
-    const newCookieStand = new CookieStandLocations(location, minCustomers, maxCustomers, avgSales);
-
-    console.log(newCookieStand);
-
-    tableElem.innerHTML = '';
-
-    // render table function here
-
-    event.target.reset();
-}
-
-const cookieStandForm = document.getElementById('cookieStand-form');
-cookieStandForm.addEventListener('submit', addCookieStandHandler);
-
 let CookieStandLocations = function (location, minCustomers, maxCustomers, avgSales) {
     this.location = location;
     this.minCustomers = minCustomers;
@@ -37,15 +15,17 @@ let CookieStandLocations = function (location, minCustomers, maxCustomers, avgSa
     this.avgSales = avgSales;
     this.customers = [];
     this.sales = [];
-    CookieStandLocations.testArr.push(this);
+
+    console.log(this);
+
+    CookieStandLocations.cookieStands.push(this);
 }
 
-//rename me later
-CookieStandLocations.testArr = [];
+CookieStandLocations.cookieStands = [];
 
 CookieStandLocations.prototype.getCustomers = function (hours) {
     for (let i = 0; i < hours.length; i += 1) {
-        let max = this.maxCutsomers;
+        let max = this.maxCustomers;
         let min = this.minCustomers;
         let randomInt = Math.random() * (max - min) + min;
         this.customers.push(parseInt(randomInt));
@@ -154,8 +134,8 @@ function renderHourlyTotal(hours) {
 
     for (let i = 0; i < hours.length; i += 1) {
         let hourlyTotal = 0;
-        for (let j = 0; j < CookieStandLocations.testArr.length; j += 1) {
-            hourlyTotal += CookieStandLocations.testArr[j].sales[i];
+        for (let j = 0; j < CookieStandLocations.cookieStands.length; j += 1) {
+            hourlyTotal += CookieStandLocations.cookieStands[j].sales[i];
             total += hourlyTotal;
         }
 
@@ -172,6 +152,28 @@ function renderHourlyTotal(hours) {
 
     tableElem.appendChild(tableRowElem);
 }
+
+// function addCookieStandHandler(event) {
+//     event.preventDefault();
+
+//     const location = event.target.location.value;
+//     const minCustomers = event.target.minCustomers.value;
+//     const maxCustomers = event.target.maxCustomers.value;
+//     const avgSales = event.target.avgSales.value;
+
+//     const newCookieStand = new CookieStandLocations(location, minCustomers, maxCustomers, avgSales);
+
+//     console.log(newCookieStand);
+
+//     tableElem.innerHTML = '';
+
+//     // render table function here
+
+//     event.target.reset();
+// }
+
+// const cookieStandForm = document.getElementById('cookieStand-form');
+// cookieStandForm.addEventListener('submit', addCookieStandHandler);
 
 renderHourlyTotal(hours);
 
