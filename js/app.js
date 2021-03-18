@@ -9,13 +9,27 @@ const tableElem = document.createElement('table');
 const bodyElem = document.getElementById('body');
 
 function addCookieStandHandler(event) {
-    // event.preventDefault();
+    event.preventDefault();
+
+    const location = event.target.location.value;
+    const minCustomers = event.target.minCustomers.value;
+    const maxCustomers = event.target.maxCustomers;
+    const avgSales = event.target.avgSales;
+
+    const newCookieStand = new CookieStandLocations(location, minCustomers, maxCustomers, avgSales);
+
+    // what does this do?
+    // tableElem.innerHTML = '';
+
+    // render table function here
+
+    event.target.reset();
 }
 
-let CookieStandLocations = function (location, minCustomers, maxCutsomers, avgSales) {
+let CookieStandLocations = function (location, minCustomers, maxCustomers, avgSales) {
     this.location = location;
     this.minCustomers = minCustomers;
-    this.maxCutsomers = maxCutsomers;
+    this.maxCustomers = maxCutsomers;
     this.avgSales = avgSales;
     this.customers = [];
     this.sales = [];
