@@ -13,13 +13,14 @@ function addCookieStandHandler(event) {
 
     const location = event.target.location.value;
     const minCustomers = event.target.minCustomers.value;
-    const maxCustomers = event.target.maxCustomers;
-    const avgSales = event.target.avgSales;
+    const maxCustomers = event.target.maxCustomers.value;
+    const avgSales = event.target.avgSales.value;
 
     const newCookieStand = new CookieStandLocations(location, minCustomers, maxCustomers, avgSales);
 
-    // what does this do?
-    // tableElem.innerHTML = '';
+    console.log(newCookieStand);
+
+    tableElem.innerHTML = '';
 
     // render table function here
 
@@ -32,7 +33,7 @@ cookieStandForm.addEventListener('submit', addCookieStandHandler);
 let CookieStandLocations = function (location, minCustomers, maxCustomers, avgSales) {
     this.location = location;
     this.minCustomers = minCustomers;
-    this.maxCustomers = maxCutsomers;
+    this.maxCustomers = maxCustomers;
     this.avgSales = avgSales;
     this.customers = [];
     this.sales = [];
@@ -151,9 +152,9 @@ function renderHourlyTotal(hours) {
     tableHeaderElem.appendChild(tableHeaderText);
     tableRowElem.appendChild(tableHeaderElem);
 
-    for (let i = 0; i < hours.length; i += 1){
+    for (let i = 0; i < hours.length; i += 1) {
         let hourlyTotal = 0;
-        for(let j = 0; j < CookieStandLocations.testArr.length; j += 1) {
+        for (let j = 0; j < CookieStandLocations.testArr.length; j += 1) {
             hourlyTotal += CookieStandLocations.testArr[j].sales[i];
             total += hourlyTotal;
         }
