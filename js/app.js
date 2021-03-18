@@ -26,6 +26,9 @@ function addCookieStandHandler(event) {
     event.target.reset();
 }
 
+const cookieStandForm = document.getElementById('cookieStand-form');
+cookieStandForm.addEventListener('submit', addCookieStandHandler);
+
 let CookieStandLocations = function (location, minCustomers, maxCustomers, avgSales) {
     this.location = location;
     this.minCustomers = minCustomers;
