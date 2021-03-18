@@ -7,6 +7,7 @@ body {
 }
 
 header {
+    position: fixed;
     width: 100%;
     background-color: azure;
 }
@@ -53,6 +54,29 @@ a {
 a:hover {
     color: springgreen;
     text-decoration: underline;
+}
+
+header figure {
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+}
+
+header section figure img {
+    height: 30%;
+    width: 30%;
+    margin-bottom: .5rem;
+}
+
+header figcaption {
+    width: fit-content;
+    margin: 0 auto;
+    border-top: solid rgb(37, 37, 37) .1rem ;
+    padding: .2rem;
+    font-weight: 900;
+    font-size: .8rem;
+    color: salmon;
+    text-align: center;
 }
 
 main {
