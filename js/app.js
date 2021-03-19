@@ -1,7 +1,3 @@
-/*
-    Date: 03.18.21
-*/
-
 'use strict'
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
@@ -40,41 +36,32 @@ CookieStandLocations.prototype.getSales = function () {
     }
 }
 
+function createChild (tag, parent, text) {
+    const newElem = document.createElement(tag);
+    let newTextNode = document.createTextNode(text);
+    newElem.appendChild(newTextNode);
+    parent.appendChild(newElem);
+}
+
 function createCells(loops, tag, parent, text) {
     if (typeof (text) === "object") {
         for (let i = 0; i < loops; i += 1) {
-            let newCell = document.createElement(tag);
-            let newTextNode = document.createTextNode(text[i]);
-            newCell.appendChild(newTextNode);
-            parent.appendChild(newCell);
+            createChild('td', parent, text[i]);
         }
     } else {
         for (let j = 0; j < loops; j += 1) {
-            let newCell = document.createElement(tag);
-            let newTextNode = document.createTextNode(text);
-            newCell.appendChild(newTextNode);
-            parent.appendChild(newCell);
+            createChild('td', parent, text[i]);
         }
     }
 }
-// function createChild (tag, parent, text) {
-//     const newElem = document.createElement(parent);
-//     let newTextNode = document.createTextNode('text');
-// }
+
 
 CookieStandLocations.prototype.render = function (hours) {
-    const tableRowElem = document.createElement('tr');
-    let rowHeaderElem;
-    let tableHeaderText;
-    let tableDataElem;
-    let tableDataText;
+    const rowElem = document.createElement('tr');
     let total = 0;
 
     //add row header
-    rowHeaderElem = document.createElement('th');
-    tableHeaderText = document.createTextNode(this.location);
-    rowHeaderElem.appendChild(tableHeaderText);
-    tableRowElem.appendChild(rowHeaderElem);
+    createChild('th', rowElem, this.location);
 
     // calculate total
     for (let i = 0; i < this.sales.length; i += 1) {
@@ -82,21 +69,12 @@ CookieStandLocations.prototype.render = function (hours) {
     }
 
     // for loop to add sales data to table
-    for (let j = 0; j < this.sales.length; j += 1) {
-        tableDataElem = document.createElement('td');
-        tableDataText = document.createTextNode(`${this.sales[j]} Cookies `);
-        tableDataElem.appendChild(tableDataText);
-
-        tableRowElem.appendChild(tableDataElem);
-    }
+    createCells(this.sales.length, 'td', rowElem, this.sales);
 
     // add total to row
-    tableDataElem = document.createElement('td');
-    tableDataText = document.createTextNode(`${total} Cookies`);
-    tableDataElem.appendChild(tableDataText);
-    tableRowElem.appendChild(tableDataElem);
+    createChild('td', rowElem, `${total}`);
 
-    tableElem.appendChild(tableRowElem);
+    tableElem.appendChild(rowElem);
 }
 
 const seattle = new CookieStandLocations('Seattle', 23, 65, 6.3);
@@ -106,16 +84,12 @@ const paris = new CookieStandLocations('Paris', 20, 38, 2.3);
 const lima = new CookieStandLocations('Lima', 2, 16, 4.6);
 
 function renderFooter(hours) {
-    const tableRowElem = document.createElement('tr');
+    const rowElem = document.createElement('tr');
     let tableDataElem;
     let tableDataText;
-    let tableHeaderText;
     let total = 0;
 
-    let tableHeaderElem = document.createElement('th');
-    tableHeaderText = document.createTextNode('Hourly Total');
-    tableHeaderElem.appendChild(tableHeaderText);
-    tableRowElem.appendChild(tableHeaderElem);
+    createChild('th', rowElem, 'Total by Column')
 
     for (let i = 0; i < hours.length; i += 1) {
         let hourlyTotal = 0;
@@ -125,45 +99,26 @@ function renderFooter(hours) {
         }
 
         tableDataElem = document.createElement('td');
-        tableDataText = document.createTextNode(`${hourlyTotal} Cookies`);
+        tableDataText = document.createTextNode(`${hourlyTotal}`);
         tableDataElem.appendChild(tableDataText);
 
-        tableRowElem.appendChild(tableDataElem);
+        rowElem.appendChild(tableDataElem);
     }
-    tableDataElem = document.createElement('td');
-    tableDataText = document.createTextNode(`${total} Cookies`);
-    tableDataElem.appendChild(tableDataText);
-    tableRowElem.append(tableDataElem);
+    createChild('td', rowElem, `${total} Cookies`);
 
-    tableElem.appendChild(tableRowElem);
+    tableElem.appendChild(rowElem);
 }
 
 function renderTable(hours) {
-    const tableRowElem = document.createElement('tr');
+    const rowElem = document.createElement('tr');
     const len = CookieStandLocations.cookieStands.length;
     let i = 0;
 
-    let tableHeaderElem;
-    let headerText;
+    createChild('th', rowElem, '');
+    createCells(hours.length, 'th', rowElem, hours);
+    createChild('th', rowElem, `Daily Total Sales`);
 
-    tableHeaderElem = document.createElement('th');
-    tableRowElem.appendChild(tableHeaderElem);
-
-    //add column headers
-    createCells(hours.length, 'th', tableRowElem, hours);
-    // for (let i = 0; i < hours.length; i += 1) {
-    //     tableHeaderElem = document.createElement('th');
-    //     headerText = document.createTextNode(hours[i]);
-    //     tableHeaderElem.appendChild(headerText);
-    //     tableRowElem.appendChild(tableHeaderElem);
-    // }
-
-    tableHeaderElem = document.createElement('th');
-    headerText = document.createTextNode('Daily Total');
-    tableHeaderElem.appendChild(headerText);
-    tableRowElem.appendChild(tableHeaderElem);
-
-    tableElem.appendChild(tableRowElem);
+    tableElem.appendChild(rowElem);
 
     for (let j = 0; j < len; j += 1) {
         CookieStandLocations.cookieStands[j].render(hours);
