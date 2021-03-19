@@ -50,7 +50,7 @@ function createCells(loops, tag, parent, text) {
         }
     } else {
         for (let j = 0; j < loops; j += 1) {
-            createChild('td', parent, text[i]);
+            createChild('td', parent, text);
         }
     }
 }
